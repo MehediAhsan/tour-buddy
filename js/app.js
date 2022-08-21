@@ -68,12 +68,35 @@ function handleBooking(obj) {
        <p>Tax: <small class="text-muted" id="tax">$00</small > </p>
        <p>Total-cost: <small class="text-muted" id="total-cost">$00</small > </p>
 
-      <input class="form-control m-2 w-50" id= "distance-input"  type="number" placeholder="Distance to travel" aria-label="Search"/>
-      <input class="form-control m-2 w-50" type="number" id= "quantity-input" placeholder="How many vehicle" aria-label="Search"/>
+      <h5>Travel Distance :</h5><input class="form-control m-2 w-50" id= "distance-input"  type="number" placeholder="Distance to travel" aria-label="Search"/>
+      <h5>Vehicle Quantity :</h5><input class="form-control m-2 w-50" type="number" id= "quantity-input" placeholder="How many vehicle" aria-label="Search"/>
 
       <button class="btn btn-success w-25 ms-2" aria-label="" type="submit" onclick='calculateCost(${stringifiedObj})'>Submit</button>
     </div>
     </div>
     </div>   
     `;
+}
+
+function calculateCost(obj) {
+  const quantity = document.getElementById("quantity-input").value;
+  const distance = document.getElementById("distance-input").value;
+
+  if(quantity>0 && distance>0){
+  const fareDiv = document.getElementById("fare");
+  const fare = quantity * distance * obj.farePerKilo;
+  fareDiv.innerText = '$' + fare;
+
+  const taxDiv = document.getElementById("tax");
+  const tax = (fare * 0.1).toFixed(2);
+  taxDiv.innerText = '$' + tax;
+
+  const totalCostDiv = document.getElementById("total-cost");
+  const totalCost = fare + tax;
+  totalCostDiv.innerText = '$' + totalCost;
+  }
+  else{
+    alert('Enter positive number');
+    return;
+  }
 }
