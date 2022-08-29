@@ -19,8 +19,22 @@ var bikeObject = {
   capacity: 30,
   description: "In the long boring bus journey sleeping on friends shoulder, Sharing earphones then fighting over which song has to play next",
 };
+var trainObject = {
+  vehicle: "Train",
+  imageUrl: "https://images.unsplash.com/photo-1563632158089-0ccec4fb87cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+  farePerKilo: 3,
+  capacity: 60,
+  description: "In the long boring bus journey sleeping on friends shoulder, Sharing earphones then fighting over which song has to play next",
+};
+var boatObject = {
+  vehicle: "Boat",
+  imageUrl: "https://images.unsplash.com/photo-1569263918239-56a390b8360e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80",
+  farePerKilo: 3,
+  capacity: 70,
+  description: "In the long boring bus journey sleeping on friends shoulder, Sharing earphones then fighting over which song has to play next",
+};
 
-const servicesArray = [carObject, bikeObject, busObject];
+const servicesArray = [carObject, bikeObject, busObject, trainObject, boatObject];
 
 function displayServices(service) {
   const mainSection = document.getElementById("main-section");
